@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from 'antd';
+import styled from 'styled-components';
+import TabsPanel from './components/TabsPanel/TabsPanel';
+import TabsBody from './containers/TabsBody';
+
+const { Content } = Layout;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <LayoutWrapper>
+        <ContentWrapper>
+          <Body>
+            <TabsPanel />
+            <TabsBody />
+          </Body>
+        </ContentWrapper>
+      </LayoutWrapper>
     );
   }
 }
+
+const LayoutWrapper = styled(Layout)`
+  min-height: 100vh !important;
+`;
+
+const ContentWrapper = styled(Content)`
+  padding: 50px 100px;
+`;
+
+const Body = styled.div`
+  background: #fff;
+  padding: 24px;
+  
+`;
 
 export default App;
